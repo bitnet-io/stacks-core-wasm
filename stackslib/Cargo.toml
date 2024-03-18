@@ -50,15 +50,15 @@ slog-term = "2.6.0"
 slog-json = { version = "2.3.0", optional = true }
 chrono = "0.4.19"
 libc = "0.2.82"
-clarity = { git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "master" }
-stacks-common = { git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "master" }
-pox-locking = { git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "master" }
-libstackerdb = { git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "master" }
+clarity = { git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "main" }
+stacks-common = { git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "main" }
+pox-locking = { git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "main" }
+libstackerdb = { git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "main" }
 siphasher = "0.3.7"
 wsts = { workspace = true }
 hashbrown = { workspace = true }
 p256k1 = "5.5.0"
-clar2wasm = { git = "https://github.com/bitnet-io/clarity-wasm.git", branch = "chore/update-clarity" }
+clar2wasm = { git = "https://github.com/bitnet-io/clarity-wasm-bitnet.git", branch = "main" }
 
 [target.'cfg(not(target_env = "msvc"))'.dependencies]
 tikv-jemallocator = {workspace = true}
@@ -99,9 +99,9 @@ features = ["std"]
 assert-json-diff = "1.0.0"
 criterion = "0.3.5"
 stdext = "0.3.1"
-stx-genesis = { git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "master" }
-clarity = { features = ["default", "testing"], git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "master" }
-stacks-common = { features = ["default", "testing"], git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "master" }
+stx-genesis = { git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "main" }
+clarity = { features = ["default", "testing"], git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "main" }
+stacks-common = { features = ["default", "testing"], git = "https://github.com/bitnet-io/stacks-core-wasm.git", branch = "main" }
 rstest = "0.17.0"
 rstest_reuse = "0.5.0"
 mutants = "0.0.3"
