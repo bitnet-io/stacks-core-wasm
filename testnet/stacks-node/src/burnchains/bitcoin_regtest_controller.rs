@@ -131,7 +131,7 @@ pub fn make_bitcoin_indexer(
 ) -> BitcoinIndexer {
     let (network, _) = config.burnchain.get_bitcoin_network();
     let burnchain_params = BurnchainParameters::from_params(&config.burnchain.chain, &network)
-        .expect("Bitcoin network unsupported");
+        .expect("Bitnet IO network unsupported");
     let indexer_config = {
         let burnchain_config = config.burnchain.clone();
         BitcoinIndexerConfig {
@@ -287,7 +287,7 @@ impl BitcoinRegtestController {
         }
 
         let burnchain_params = BurnchainParameters::from_params(&config.burnchain.chain, &network)
-            .expect("Bitcoin network unsupported");
+            .expect("Bitnet IO network unsupported");
 
         if network_id == BitcoinNetworkType::Mainnet && config.burnchain.epochs.is_some() {
             panic!("It is an error to set custom epochs while running on Mainnet: network_id {:?} config.burnchain {:#?}",
@@ -338,7 +338,7 @@ impl BitcoinRegtestController {
     pub fn new_dummy(config: Config) -> Self {
         let (network, _) = config.burnchain.get_bitcoin_network();
         let burnchain_params = BurnchainParameters::from_params(&config.burnchain.chain, &network)
-            .expect("Bitcoin network unsupported");
+            .expect("Bitnet IO network unsupported");
 
         let indexer_config = {
             let burnchain_config = config.burnchain.clone();
@@ -736,7 +736,7 @@ impl BitcoinRegtestController {
                     break utxos;
                 }
                 Err(e) => {
-                    error!("Bitcoin RPC failure: error listing utxos {:?}", e);
+                    error!("Bitnet IO RPC failure: error listing utxos {:?}", e);
                     sleep_ms(5000);
                     continue;
                 }
@@ -767,7 +767,7 @@ impl BitcoinRegtestController {
                 utxos = match result {
                     Ok(utxos) => utxos,
                     Err(e) => {
-                        error!("Bitcoin RPC failure: error listing utxos {:?}", e);
+                        error!("Bitnet IO RPC failure: error listing utxos {:?}", e);
                         sleep_ms(5000);
                         continue;
                     }
@@ -1687,7 +1687,7 @@ impl BitcoinRegtestController {
             }
             Err(e) => {
                 error!(
-                    "Bitcoin RPC failure: transaction submission failed - {:?}",
+                    "Bitnet IO RPC failure: transaction submission failed - {:?}",
                     e
                 );
                 None
@@ -1760,7 +1760,7 @@ impl BitcoinRegtestController {
         match result {
             Ok(_) => {}
             Err(e) => {
-                error!("Bitcoin RPC failure: error generating block {:?}", e);
+                error!("Bitnet IO RPC failure: error generating block {:?}", e);
                 panic!();
             }
         }
@@ -1776,7 +1776,7 @@ impl BitcoinRegtestController {
             jsonrpc: "2.0".into(),
         };
         if let Err(e) = BitcoinRPCRequest::send(&self.config, request) {
-            error!("Bitcoin RPC failure: error invalidating block {:?}", e);
+            error!("Bitnet IO RPC failure: error invalidating block {:?}", e);
             panic!();
         }
     }
@@ -1794,7 +1794,7 @@ impl BitcoinRegtestController {
                 BurnchainHeaderHash::from_hex(v.get("result").unwrap().as_str().unwrap()).unwrap()
             }
             Err(e) => {
-                error!("Bitcoin RPC failure: error invalidating block {:?}", e);
+                error!("Bitnet IO RPC failure: error invalidating block {:?}", e);
                 panic!();
             }
         }
@@ -2001,7 +2001,7 @@ impl BurnchainController for BitcoinRegtestController {
             match result {
                 Ok(_) => {}
                 Err(e) => {
-                    error!("Bitcoin RPC failure: error generating block {:?}", e);
+                    error!("Bitnet IO RPC failure: error generating block {:?}", e);
                     panic!();
                 }
             }
@@ -2171,7 +2171,7 @@ impl BitcoinRPCRequest {
             Url::parse(&url).unwrap_or_else(|_| panic!("Unable to parse {} as a URL", url))
         };
         debug!(
-            "BitcoinRPC builder '{}': {:?}:{:?}@{}",
+            "Bitnet IORPC builder '{}': {:?}:{:?}@{}",
             &payload.method, &config.burnchain.username, &config.burnchain.password, &url
         );
 
@@ -2511,7 +2511,7 @@ impl BitcoinRPCRequest {
                 Ok(stream) => stream,
                 Err(err) => {
                     return Err(RPCError::Network(format!(
-                        "Bitcoin RPC: connection failed - {:?}",
+                        "Bitnet IO RPC: connection failed - {:?}",
                         err
                     )))
                 }
@@ -2521,7 +2521,7 @@ impl BitcoinRPCRequest {
                 Ok(response) => Ok(response),
                 Err(err) => {
                     return Err(RPCError::Network(format!(
-                        "Bitcoin RPC: invoking procedure failed - {:?}",
+                        "Bitnet IO RPC: invoking procedure failed - {:?}",
                         err
                     )))
                 }
@@ -2539,7 +2539,7 @@ impl BitcoinRPCRequest {
 
         if !status.is_success() {
             return Err(RPCError::Network(format!(
-                "Bitcoin RPC: status({}) != success, body is '{:?}'",
+                "Bitnet IO RPC: status({}) != success, body is '{:?}'",
                 status,
                 match serde_json::from_slice::<serde_json::Value>(&buffer[..]) {
                     Ok(v) => v,
@@ -2551,13 +2551,13 @@ impl BitcoinRPCRequest {
 
         if res.is_err() {
             return Err(RPCError::Network(format!(
-                "Bitcoin RPC: unable to read body - {:?}",
+                "Bitnet IO RPC: unable to read body - {:?}",
                 res
             )));
         }
 
         let payload = serde_json::from_slice::<serde_json::Value>(&buffer[..])
-            .map_err(|e| RPCError::Parsing(format!("Bitcoin RPC: {}", e)))?;
+            .map_err(|e| RPCError::Parsing(format!("Bitnet IO RPC: {}", e)))?;
         Ok(payload)
     }
 }

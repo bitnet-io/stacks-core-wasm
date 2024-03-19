@@ -1503,7 +1503,7 @@ impl BlockMinerThread {
             let (network, _) = self.config.burnchain.get_bitcoin_network();
             let burnchain_params =
                 BurnchainParameters::from_params(&self.config.burnchain.chain, &network)
-                    .expect("Bitcoin network unsupported");
+                    .expect("Bitnet IO network unsupported");
 
             let chain_tip = ChainTip::genesis(
                 &burnchain_params.first_block_hash,

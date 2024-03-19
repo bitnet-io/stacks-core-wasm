@@ -708,7 +708,7 @@ impl BitcoinIndexer {
             if reorg_headers.len() == 0 {
                 // chain shrank considerably
                 info!(
-                    "Missing Bitcoin headers in block range {}-{} -- did the Bitcoin chain shrink?",
+                    "Missing Bitnet IO headers in block range {}-{} -- did the Bitnet IO chain shrink?",
                     start_block,
                     start_block + REORG_BATCH_SIZE
                 );
@@ -794,7 +794,7 @@ impl BitcoinIndexer {
             let reorg_total_work = reorg_spv_client.update_chain_work()?;
             let orig_total_work = orig_spv_client.update_chain_work()?;
 
-            debug!("Bitcoin headers history is consistent up to {}", new_tip;
+            debug!("Bitnet IO headers history is consistent up to {}", new_tip;
                    "Orig chainwork" => %orig_total_work,
                    "Reorg chainwork" => %reorg_total_work);
 
@@ -804,7 +804,7 @@ impl BitcoinIndexer {
                     .read_block_header(reorg_tip - 1)?
                     .expect("FATAL: no tip hash for existing chain tip");
                 info!(
-                    "New canonical Bitcoin chain found! New tip is {}",
+                    "New canonical Bitnet IO chain found! New tip is {}",
                     &hdr_reorg.header.bitcoin_hash()
                 );
 
@@ -845,7 +845,7 @@ impl BitcoinIndexer {
                 }
             } else {
                 // ignore the reorg
-                test_debug!("Reorg chain does not overtake original Bitcoin chain");
+                test_debug!("Reorg chain does not overtake original Bitnet IO chain");
                 new_tip = orig_spv_client.get_headers_height()?;
             }
         }
