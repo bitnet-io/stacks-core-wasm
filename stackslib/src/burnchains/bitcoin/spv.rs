@@ -1288,7 +1288,7 @@ impl BitcoinMessageHandler for SpvClient {
                     let progress =
                         (block_height - self.start_block_height) as f32 / total as f32 * 100.;
                     info!(
-                        "Syncing Bitcoin headers: {:.1}% ({} out of {})",
+                        "Syncing Bitnet IO headers: {:.1}% ({} out of {})",
                         progress, block_height, total
                     );
                 } else {
