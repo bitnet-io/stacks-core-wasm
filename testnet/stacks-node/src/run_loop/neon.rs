@@ -427,7 +427,7 @@ impl RunLoop {
             }
         }
 
-        info!("Start syncing Bitcoin headers, feel free to grab a cup of coffee, this can take a while");
+        info!("Start syncing Bitnet IO headers, feel free to grab a cup of coffee, this can take a while");
 
         let burnchain_config = burnchain_controller.get_burnchain();
         let target_burnchain_block_height = match burnchain_config

@@ -825,7 +825,7 @@ dependencies = [
 [[package]]
 name = "clarity"
 version = "2.3.0"
-source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#ee3246e0f60a4df44a9f5b0149ca702d244c8ca2"
+source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#7889e0034c9de43e1b164e2eb7d59cfc28ce8bf1"
 dependencies = [
  "getrandom 0.2.12",
  "hashbrown 0.14.3",
@@ -2436,7 +2436,7 @@ dependencies = [
 [[package]]
 name = "libsigner"
 version = "0.0.1"
-source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#ee3246e0f60a4df44a9f5b0149ca702d244c8ca2"
+source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#7889e0034c9de43e1b164e2eb7d59cfc28ce8bf1"
 dependencies = [
  "clarity 2.3.0 (git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main)",
  "hashbrown 0.14.3",
@@ -2484,7 +2484,7 @@ dependencies = [
 [[package]]
 name = "libstackerdb"
 version = "0.0.1"
-source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#ee3246e0f60a4df44a9f5b0149ca702d244c8ca2"
+source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#7889e0034c9de43e1b164e2eb7d59cfc28ce8bf1"
 dependencies = [
  "clarity 2.3.0 (git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main)",
  "secp256k1",
@@ -3078,7 +3078,7 @@ dependencies = [
 [[package]]
 name = "pox-locking"
 version = "2.4.0"
-source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#ee3246e0f60a4df44a9f5b0149ca702d244c8ca2"
+source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#7889e0034c9de43e1b164e2eb7d59cfc28ce8bf1"
 dependencies = [
  "clarity 2.3.0 (git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main)",
  "slog",
@@ -4123,7 +4123,7 @@ dependencies = [
 [[package]]
 name = "stacks-common"
 version = "0.0.2"
-source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#ee3246e0f60a4df44a9f5b0149ca702d244c8ca2"
+source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#7889e0034c9de43e1b164e2eb7d59cfc28ce8bf1"
 dependencies = [
  "chrono",
  "curve25519-dalek 2.0.0",
@@ -4227,7 +4227,7 @@ dependencies = [
 [[package]]
 name = "stacks-signer"
 version = "0.0.1"
-source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#ee3246e0f60a4df44a9f5b0149ca702d244c8ca2"
+source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#7889e0034c9de43e1b164e2eb7d59cfc28ce8bf1"
 dependencies = [
  "backoff",
  "clap 4.5.3",
@@ -4308,7 +4308,7 @@ dependencies = [
 [[package]]
 name = "stackslib"
 version = "0.0.1"
-source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#ee3246e0f60a4df44a9f5b0149ca702d244c8ca2"
+source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#7889e0034c9de43e1b164e2eb7d59cfc28ce8bf1"
 dependencies = [
  "chrono",
  "clar2wasm",
@@ -4437,7 +4437,7 @@ dependencies = [
 [[package]]
 name = "stx-genesis"
 version = "0.1.0"
-source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#ee3246e0f60a4df44a9f5b0149ca702d244c8ca2"
+source = "git+https://github.com/bitnet-io/stacks-core-wasm.git?branch=main#7889e0034c9de43e1b164e2eb7d59cfc28ce8bf1"
 dependencies = [
  "libflate",
  "sha2 0.10.8",
@@ -5050,9 +5050,9 @@ checksum = "711b9620af191e0cdc7468a8d14e709c3dcdb115b36f838e601583af800a370a"
 
 [[package]]
 name = "uuid"
-version = "1.7.0"
+version = "1.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f00cc9702ca12d3c81455259621e676d0f7251cec66a21e98fe2e9a37db93b2a"
+checksum = "a183cf7feeba97b4dd1c0d46788634f6221d87fa961b305bed08c851829efcc0"
 
 [[package]]
 name = "valuable"
