@@ -495,14 +495,14 @@ impl TransactionAuthField {
 #[repr(u8)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum SinglesigHashMode {
-    P2PKH = 0x00,
+    P2PKH = 0x19,
     P2WPKH = 0x02,
 }
 
 #[repr(u8)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub enum MultisigHashMode {
-    P2SH = 0x01,
+    P2SH = 0x16,
     P2WSH = 0x03,
 }
 

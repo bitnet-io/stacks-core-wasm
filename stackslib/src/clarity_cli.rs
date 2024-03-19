@@ -1064,9 +1064,9 @@ pub fn invoke_command(invoked_by: &str, args: &[String]) -> (i32, Option<serde_j
         "generate_address" => {
             // random 20 bytes
             let random_bytes = rand::thread_rng().gen::<[u8; 20]>();
-            // version = 22
+            // version = 25
             let addr =
-                friendly_expect(c32_address(22, &random_bytes), "Failed to generate address");
+                friendly_expect(c32_address(25, &random_bytes), "Failed to generate address");
 
             (0, Some(json!({ "address": format!("{}", addr) })))
         }

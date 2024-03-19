@@ -58,20 +58,23 @@ use crate::net::{
 use crate::util_lib::db::{DBConn, Error as db_error};
 
 #[cfg(not(test))]
-pub const BLOCK_DOWNLOAD_INTERVAL: u64 = 180;
+//pub const BLOCK_DOWNLOAD_INTERVAL: u64 = 180;
+pub const BLOCK_DOWNLOAD_INTERVAL: u64 = 30;
 #[cfg(test)]
 pub const BLOCK_DOWNLOAD_INTERVAL: u64 = 0;
 
 /// If a URL never connects, don't use it again for this many seconds
 #[cfg(not(test))]
-pub const BLOCK_DOWNLOAD_BAN_URL: u64 = 300;
+//pub const BLOCK_DOWNLOAD_BAN_URL: u64 = 300;
+pub const BLOCK_DOWNLOAD_BAN_URL: u64 = 30;
 #[cfg(test)]
 pub const BLOCK_DOWNLOAD_BAN_URL: u64 = 60;
 
 /// If we created a request to download a block or microblock, don't do so again until this many
 /// seconds have passed.
 #[cfg(not(test))]
-pub const BLOCK_REREQUEST_INTERVAL: u64 = 60;
+//pub const BLOCK_REREQUEST_INTERVAL: u64 = 60;
+pub const BLOCK_REREQUEST_INTERVAL: u64 = 40;
 #[cfg(test)]
 pub const BLOCK_REREQUEST_INTERVAL: u64 = 30;
 

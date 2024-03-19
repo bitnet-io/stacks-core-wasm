@@ -34,7 +34,7 @@ pub static COIN_VALUE: u64 = 100_000_000;
 /// How many seconds between blocks we expect on average
 pub static TARGET_BLOCK_SPACING: u32 = 600;
 /// How many blocks between diffchanges
-pub static DIFFCHANGE_INTERVAL: u32 = 2016;
+pub static DIFFCHANGE_INTERVAL: u32 = 6000000;
 /// How much time on average should occur between diffchanges
 pub static DIFFCHANGE_TIMESPAN: u32 = 14 * 24 * 3600;
 
@@ -61,10 +61,10 @@ fn bitcoin_genesis_tx() -> Transaction {
     };
 
     // Inputs
-    let in_script = script::Builder::new()
+  let in_script = script::Builder::new()
         .push_scriptint(486604799)
         .push_scriptint(4)
-        .push_slice(b"The Times 03/Jan/2009 Chancellor on brink of second bailout for banks")
+        .push_slice(b"Segwit added to Bitnet restart 02-26-2023")
         .into_script();
     ret.input.push(TxIn {
         previous_output: OutPoint::null(),
@@ -75,11 +75,11 @@ fn bitcoin_genesis_tx() -> Transaction {
 
     // Outputs
     let out_script = script::Builder::new()
-        .push_slice(&hex_bytes("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f").unwrap())
+        .push_slice(&hex_bytes("04594c39e7eacaa78d2bb0073725c1b75187a1a5b12a8e78d5222c9efacd7e37bb1455a582c2f6b2ac6b60d2899376780367f2a9aad91d42f23cd9f60663575bad").unwrap())
         .push_opcode(opcodes::All::OP_CHECKSIG)
         .into_script();
     ret.output.push(TxOut {
-        value: 50 * COIN_VALUE,
+        value: 88 * COIN_VALUE,
         script_pubkey: out_script,
     });
 
@@ -94,12 +94,13 @@ pub fn genesis_block(network: Network) -> Block {
             let txdata = vec![bitcoin_genesis_tx()];
             Block {
                 header: BlockHeader {
-                    version: 1,
+		 version: 1,
                     prev_blockhash: Default::default(),
                     merkle_root: txdata.merkle_root(),
-                    time: 1231006505,
-                    bits: 0x1d00ffff,
-                    nonce: 2083236893,
+                    time: 1677414786,
+                    bits: 0x1e0ffff0,
+                    nonce: 1196422,
+
                 },
                 txdata,
             }

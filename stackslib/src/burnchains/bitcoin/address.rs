@@ -73,13 +73,13 @@ impl From<SegwitBitcoinAddress> for BitcoinAddress {
 }
 
 // legacy address versions
-pub const ADDRESS_VERSION_MAINNET_SINGLESIG: u8 = 0;
-pub const ADDRESS_VERSION_MAINNET_MULTISIG: u8 = 5;
+pub const ADDRESS_VERSION_MAINNET_SINGLESIG: u8 = 25;
+pub const ADDRESS_VERSION_MAINNET_MULTISIG: u8 = 22;
 pub const ADDRESS_VERSION_TESTNET_SINGLESIG: u8 = 111;
 pub const ADDRESS_VERSION_TESTNET_MULTISIG: u8 = 196;
 
 // segwit hrps
-pub const SEGWIT_MAINNET_HRP: &'static str = "bc";
+pub const SEGWIT_MAINNET_HRP: &'static str = "bit";
 pub const SEGWIT_TESTNET_HRP: &'static str = "tb";
 
 // segwit witnes versions

@@ -70,8 +70,8 @@ use crate::util_lib::db::{
 use crate::{cost_estimates, monitoring};
 
 // maximum number of confirmations a transaction can have before it's garbage-collected
-pub const MEMPOOL_MAX_TRANSACTION_AGE: u64 = 256;
-pub const MAXIMUM_MEMPOOL_TX_CHAINING: u64 = 25;
+pub const MEMPOOL_MAX_TRANSACTION_AGE: u64 = 5;
+pub const MAXIMUM_MEMPOOL_TX_CHAINING: u64 = 4;
 
 // name of table for storing the counting bloom filter
 pub const BLOOM_COUNTER_TABLE: &'static str = "txid_bloom_counter";
@@ -87,7 +87,7 @@ pub const BLOOM_COUNTER_DEPTH: usize = 2;
 
 // how long will a transaction be blacklisted?
 // about as long as it takes for it to be garbage-collected
-pub const DEFAULT_BLACKLIST_TIMEOUT: u64 = 24 * 60 * 60 * 2;
+pub const DEFAULT_BLACKLIST_TIMEOUT: u64 = 1 * 60 * 60;
 pub const DEFAULT_BLACKLIST_MAX_SIZE: u64 = 134217728; // 2**27 -- the blacklist table can reach at most 4GB at 128 bytes per record
 
 // maximum many tx tags we'll send before sending a bloom filter instead.

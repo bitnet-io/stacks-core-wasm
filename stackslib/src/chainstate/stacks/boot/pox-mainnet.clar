@@ -11,8 +11,8 @@
 
 ;; Valid values for burnchain address versions.
 ;; These correspond to address hash modes in Stacks 2.0.
-(define-constant ADDRESS_VERSION_P2PKH 0x00)
-(define-constant ADDRESS_VERSION_P2SH 0x01)
+(define-constant ADDRESS_VERSION_P2PKH 0x19)
+(define-constant ADDRESS_VERSION_P2SH 0x16)
 (define-constant ADDRESS_VERSION_P2WPKH 0x02)
 (define-constant ADDRESS_VERSION_P2WSH 0x03)
 

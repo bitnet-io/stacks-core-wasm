@@ -28,8 +28,8 @@ pub mod c32;
 #[cfg(test)]
 pub mod c32_old;
 
-pub const C32_ADDRESS_VERSION_MAINNET_SINGLESIG: u8 = 22; // P
-pub const C32_ADDRESS_VERSION_MAINNET_MULTISIG: u8 = 20; // M
+pub const C32_ADDRESS_VERSION_MAINNET_SINGLESIG: u8 = 25; // P
+pub const C32_ADDRESS_VERSION_MAINNET_MULTISIG: u8 = 22; // M
 pub const C32_ADDRESS_VERSION_TESTNET_SINGLESIG: u8 = 26; // T
 pub const C32_ADDRESS_VERSION_TESTNET_MULTISIG: u8 = 21; // N
 
@@ -97,8 +97,8 @@ impl error::Error for Error {
 #[derive(Debug, Clone, PartialEq, PartialOrd, Ord, Hash, Eq, Copy, Serialize, Deserialize)]
 pub enum AddressHashMode {
     // We support four different modes due to legacy compatibility with Stacks v1 addresses:
-    SerializeP2PKH = 0x00,  // hash160(public-key), same as bitcoin's p2pkh
-    SerializeP2SH = 0x01,   // hash160(multisig-redeem-script), same as bitcoin's multisig p2sh
+    SerializeP2PKH = 0x19,  // hash160(public-key), same as bitcoin's p2pkh
+    SerializeP2SH = 0x16,   // hash160(multisig-redeem-script), same as bitcoin's multisig p2sh
     SerializeP2WPKH = 0x02, // hash160(segwit-program-00(p2pkh)), same as bitcoin's p2sh-p2wpkh
     SerializeP2WSH = 0x03,  // hash160(segwit-program-00(public-keys)), same as bitcoin's p2sh-p2wsh
 }
